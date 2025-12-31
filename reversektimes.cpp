@@ -1,0 +1,44 @@
+// #include<iostream>
+// #include<vector>
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int rotatearrayktimes(vector<int>&arr , int k){
+//     int n = arr.size();
+//     k = k%n;
+
+//     reverse(arr.begin(),arr.end());
+//     reverse(arr.begin(), arr.begin() + k);
+//     reverse(arr.begin() + k, arr.end());
+
+// }
+
+// int main(){
+
+//     vector<int> arr = {1,2,3,4,5,6,7};
+//     cout<<"rotatearray"<<rotatearrayktimes(arr ,3)<<" ";
+//     return 0;
+// }
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void rotateRight(vector<int>& arr, int k) {
+    int n = arr.size();
+    k = k % n;  // handle k > n
+
+    reverse(arr.begin(), arr.end());
+    reverse(arr.begin(), arr.begin() + k);
+    reverse(arr.begin() + k, arr.end());
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 2;
+
+    rotateRight(arr, k);
+
+    for(int x : arr) cout << x << " ";
+    return 0;
+}
